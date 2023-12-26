@@ -119,32 +119,40 @@ class _LoginPageClassState extends State<LoginPageClass> {
                       });
                     },
                   ),
-                  DropdownButton(
-                    iconEnabledColor: Colors.blue,
-                  style: const TextStyle(color: Colors.blue,fontSize: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text('Type of User',style: TextStyle(color: Colors.white,fontSize: 16)),
+                     const  SizedBox(width: 20,),
+                      DropdownButton(
+                        iconEnabledColor: Colors.blue,
+                      style: const TextStyle(color: Colors.blue,fontSize: 15),
 
-                    value: dropdownvalue,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items: items.map((String items) {
-                      return DropdownMenuItem(
-                        
-                        value: items,
-                        child: Text(items),
-                      );
-                    }).toList(),
-                    onChanged: (newValue) {
-                      setState(() {
-                        dropdownvalue = newValue!; 
-                        if(newValue==items.first){
+                        value: dropdownvalue,
+                        icon: const Icon(Icons.keyboard_arrow_down),
+                        items: items.map((String items) {
+                          return DropdownMenuItem(
+                            
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+                        onChanged: (newValue) {
+                          setState(() {
+                            dropdownvalue = newValue!; 
+                            if(newValue==items.first){
 
-                      BooleanClass.isSender=false;
-                        }
-                        else{
-                          BooleanClass.isSender=true;
-                        }
-                        
-                      });
-                    },
+                          BooleanClass.isSender=false;
+                            }
+                            else{
+                              BooleanClass.isSender=true;
+                            }
+                            
+                          });
+                        },
+                      ),
+                    ],
                   ),
                   Align(
                     alignment: Alignment.topRight,
